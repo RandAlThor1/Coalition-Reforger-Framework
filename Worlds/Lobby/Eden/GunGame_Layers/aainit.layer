@@ -1,7 +1,16 @@
 PS_GameModeCoop CRF_GameMode_Lobby_1 : "{70D51A019CC9AA3F}Prefabs/MP/Modes/Lobby/CRF_GameMode_Lobby-12.et" {
  components {
-  CRF_GunGameGameModeComponent "{6224306D215D71CA}" {
+  CRF_GunGameGameModeComponent "{6224FC4851713DE3}" {
+   m_aGunsList {
+    GunGameWeaponSelection "{6224FC4856511AB1}" {
+     Weapon "{3E413771E1834D2F}Prefabs/Weapons/Rifles/M16/Rifle_M16A2.et"
+     Ammo "{A0CEFA7FA41091F7}Prefabs/Weapons/Ammo/Ammo_556x45_Tracer_M856.et"
+    }
+    GunGameWeaponSelection "{6224FC48566F4547}" {
+     Weapon "{FA5C25BF66A53DCF}Prefabs/Weapons/Rifles/AK74/Rifle_AK74.et"
+     Ammo "{2BC4C9C3D171A53B}Prefabs/Weapons/Ammo/Ammo_545x39_Tracer_7T3.et"
+    }
+   }
   }
  }
- coords 6377.412 158.48 6431.952
 }
