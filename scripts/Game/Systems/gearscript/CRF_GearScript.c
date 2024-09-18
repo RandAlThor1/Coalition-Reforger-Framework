@@ -1,8 +1,47 @@
 [ComponentEditorProps(category: "Safe Start Component", description: "")]
-class CRF_SafestartGameModeComponentClass: SCR_BaseGameModeComponentClass {}
+class CRF_GearScriptModeComponentClass: SCR_BaseGameModeComponentClass {}
 
-class CRF_SafestartGameModeComponent: SCR_BaseGameModeComponent
+class CRF_GearScriptModeComponent: SCR_BaseGameModeComponent
 {
+	[Attribute(defvalue: "BLUFOR")]
+	int m_FactionOne;
+	[Attribute()]
+	static CRF_GearScriptConfig m_BLUFORGearScript;
+	
+	[Attribute(defvalue: "OPFOR")]
+	int m_FactionTwo;
+	[Attribute()]
+	static CRF_GearScriptConfig m_OPFORGearScript;
+	
+	[Attribute(defvalue: "INDFOR")]
+	int m_FactionThree;
+	[Attribute()]
+	static CRF_GearScriptConfig m_INDFORGearScript;
+	
+	[Attribute(defvalue: "CIV")]
+	int m_FactionFour;
+	[Attribute()]
+	static CRF_GearScriptConfig m_CIVGearScript;
+	
+	static CRF_GearScriptModeComponent GetInstance()
+	{
+		BaseGameMode gameMode = GetGame().GetGameMode();
+		if (gameMode)
+			return CRF_GearScriptModeComponent.Cast(gameMode.FindComponent(CRF_GearScriptModeComponent));
+		else
+			return null;
+	}
+	// BLUFOR = 0, OPFOR = 1, INDFOR = 2, CIV = 3
+	static CRF_GearScriptConfig getFactionConfig(int factionNum)
+	{
+		if (factionNum == 0 && m_BLUFORGearScript != null)  return m_BLUFORGearScript; 
+		if (factionNum == 1 && m_OPFORGearScript!= null) return m_OPFORGearScript;
+		if (factionNum == 2 && m_INDFORGearScript!= null) return m_INDFORGearScript;
+		if (factionNum == 3 && m_CIVGearScript!= null) return m_CIVGearScript;
+		return null;
+	}
+	
+	/*
 	[Attribute("45", "auto", "Mission Time (set to -1 to disable)")]
 	int m_iTimeLimitMinutes;
 	
@@ -40,7 +79,6 @@ class CRF_SafestartGameModeComponent: SCR_BaseGameModeComponent
 	protected SCR_BaseGameMode m_GameMode;
 	protected CRF_LoggingServerComponent m_Logging;
 	
-
 	protected int m_iPlayedFactionsCount;
 	protected ref map<IEntity,bool> m_mPlayersWithEHsMap = new map<IEntity,bool>;
 	
@@ -542,4 +580,5 @@ class CRF_SafestartGameModeComponent: SCR_BaseGameModeComponent
 		// Get grenade and delete it
 		delete entity;
 	}
+	*/
 };
